@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+                
+<h:head>
+<title>Long in</title>
+<link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/login.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+
+
+<h:form id="managerReg" enctype="multipart/form-data" prependId="false" style="background:rgba(20, 21, 22, 0.52); height:100%">
+	   
+	 <div class="slider">
+		<a class="" href="singUp.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+		
+		
+	</div>
+	
+
+
+	<div class="validation-grids">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+			<div class="input-info">
+				
+				
+			</div>
+			
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		<p:growl />
+		
+			<h:panelGrid columns="2" cellpadding="8">
+				<p:outputLabel value="Email :" /> <p:inputText placeholder="enter your email...."  type="email"  value="#{loginController.userBasicInfoDTO.email}" class="form-control inputEmail" />
+				<p:outputLabel value="Password :" /><p:inputText placeholder="password" type="password...."  value="#{loginController.password}" class="form-control inputEmail" />
+				
+			</h:panelGrid>
+			
+			 
+			
+		
+			<h:panelGrid columns="3" cellpadding="10" style="padding:20px;">
+				<p:commandButton value="Login" action="#{loginController.login}" icon="fa fa-lock" update="managerReg" ajax="false"/>
+				
+			</h:panelGrid>
+			
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

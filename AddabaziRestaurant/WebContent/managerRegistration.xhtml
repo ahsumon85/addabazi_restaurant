@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+                
+<h:head>
+<title>Manager Registration</title>
+<link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/managerRagistration.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+
+
+<h:form id="managerReg" enctype="multipart/form-data" prependId="false">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+		<a class="" href="managerRegistrationList.xhtml"><img class="image_info" src="icon/information.png" title="Go Home" alt="Flower" /></a>
+		
+	</div>
+
+
+	<div class="validation-grids" style="margin-top:8px;width:798px;margin-left: 254px;">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+			<div class="input-info">
+				<h3>Manager Registration</h3>
+			</div>
+			
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		<p:growl />
+		
+			<h:panelGrid columns="4" cellpadding="8">
+				<p:outputLabel value="Name :"  class="design"/> <p:inputText placeholder="Name" value="#{managerController.managerdto.managerName}" type="text" class="form-control inputEmail"/>
+				<p:outputLabel value="Email :" /><p:inputText placeholder="email" type="email"  value="#{managerController.managerdto.email}" class="form-control inputEmail"/>
+				<p:outputLabel value="National ID :" /> <p:inputText placeholder="ID" value="#{managerController.managerdto.natinoalID}" class="form-control inputEmail" maxlength="16" />
+				<p:outputLabel value="Phone Number :" /><p:inputText placeholder="Number"  value="#{managerController.managerdto.number}" type="text" class="form-control inputEmail"/>
+				<p:outputLabel value="Father Name :" /> <p:inputText placeholder="Name" type="text"  value="#{managerController.managerdto.fatherName}" class="form-control inputEmail"/>
+				<p:outputLabel value="Father Number :" /> <p:inputText placeholder="Number" value="#{managerController.managerdto.fatherNumber}" type="text" class="form-control inputEmail"/>
+				<p:outputLabel value="Photo :"/> <p:fileUpload value="#{managerController.uploadFile}" skinSimple="true" mode="simple" style=" "/>
+				 <p:outputLabel for="calender" value="Date of Birth :" />
+				 <p:inputMask id="calender" value="#{managerController.managerdto.birthDate}" mask="99/99/9999" class="form-control inputEmail" />
+			</h:panelGrid>
+			
+			  <h:panelGrid columns="2" cellpadding="8" style="margin:20px">
+				 <p:outputLabel for="Gender" value="Educational Background :" />
+				 <p:selectOneRadio id="Gender" value="#{managerController.managerdto.education}" style="margin:10px">
+				 <f:selectItem itemLabel="S.S.C" itemValue="SSC"/>
+				 <f:selectItem itemLabel="H.S.C" itemValue="HSC"/>
+				 <f:selectItem itemLabel="Graduate" itemValue="graduate" />
+				</p:selectOneRadio>
+			 </h:panelGrid>
+			 
+			 
+			  <h:panelGrid cellpadding="5" style=" margin-left:100px;">
+				  
+			 </h:panelGrid>
+			 
+		<p:outputLabel value="Address :" /> 
+			<h:panelGrid columns="3" cellpadding="10" style="padding:20px;">
+   			     <p:inputTextarea style="margin-left:20px;" rows="5" cols="30" value="#{managerController.managerdto.address}" class="form-control inputEmail"/>
+				<p:commandButton value="Save" action="#{managerController.savaManager}" icon="fa fa-save" update="managerReg" ajax="false"/>
+				
+			</h:panelGrid>
+			
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

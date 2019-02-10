@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >     
+<h:head>
+<title>Service Registration</title>
+  <link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/categoryRegistration.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+<h:form id="service" enctype="multipart/form-data" prependId="false">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+	</div>
+	
+
+	<div class="validation-grids"  style="margin-top:8px;width:798px;margin-left: 254px; height: 500px;">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+			<div class="input-info">
+				<h3>Category Registration</h3>
+			</div>
+			
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		
+			<h:panelGrid columns="2" cellpadding="8" style="margin-top:5%;">
+				<p:outputLabel  value="Category Name :" style="margin-top:10px;"/><p:inputText placeholder="Name" value="#{serviceController.categoryDTO.categoryName}" type="text" class="form-control inputEmail"/>
+			</h:panelGrid>
+
+			        
+			  <h:panelGrid columns="3" cellpadding="10" style="padding:20px; margin:1% 0% 0% 20%">
+				<p:commandButton value="Save" action="#{serviceController.categorySave}" update="service" icon="fa fa-save" ajax="false" style=""/>
+				
+			</h:panelGrid>  
+			
+			
+			
+			
+			
+							
+			<p:dataTable value="#{serviceController.categoryDTOs}"  var="addList" border="1" style="width:45%; margin-top:50px; margin-left:50px">
+				<p:column style="width:5px;">
+					<f:facet name="header"><p:outputLabel value=" No"/></f:facet>
+					<p:outputLabel value="#{addList.categoryID}" />
+				</p:column>
+					
+				<p:column style="width:30px">
+					<f:facet name="header"><p:outputLabel value="Category"/></f:facet>
+					<p:outputLabel value="#{addList.categoryName}"/>
+				</p:column>
+				
+			</p:dataTable>
+			   
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

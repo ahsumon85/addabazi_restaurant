@@ -1,0 +1,118 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"  
+                >
+            
+              
+<h:head>
+<title>AddaBazi</title>
+  <link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/billEntry-process-2.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" /> 
+
+
+<h:form>
+
+
+	<div class="validation-grids">
+	<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 	
+	<div class="form-body form-body-info">
+	<div class="form-group has-feedback">
+		
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+	</div>
+		
+			
+				<div>
+					<div style="margin-left: 40px">
+					<h:panelGrid columns="2" cellpadding="8">
+						<h:panelGrid columns="2" cellpadding="8">
+						<p:outputLabel value="Customer Name :"/>
+						<p:outputLabel value="#{billController.cutomerName}"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2" style="margin-left:150px">
+						<p:outputLabel value="Manager :"/>
+						<p:outputLabel value="#{billController.manager}"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2">
+						<p:outputLabel value="Customer Number :"/>
+						<p:outputLabel value="#{billController.number}"/>
+						</h:panelGrid>			
+				
+						<h:panelGrid columns="2" style="margin-left:150px">
+						<p:outputLabel value="Customer ID :"/>
+						<p:outputLabel value="#{billController.customeID}"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2">
+						<p:outputLabel value="Date of Entry  :"/>
+						<p:outputLabel value="#{billController.dateTime}"/>
+						</h:panelGrid>
+					</h:panelGrid>
+					</div>
+					
+				</div>
+				
+				<div>
+								
+				<h:dataTable value="#{billController.addDtoList}" var="add" border="1" style="width:60%; margin-top: 52px;background: #9d0334;margin-left: 83px;" >
+				<p:column style="width:100px">
+				<f:facet name="header"><p:outputLabel value=" No."/></f:facet>
+				<center><p:outputLabel value="#{add.addID}" /></center>
+				</p:column>
+					
+				<p:column style="width:200px">
+				<f:facet name="header"><p:outputLabel value="Item"/></f:facet>
+				<p:outputLabel value="#{add.serviceName}"/>
+				</p:column>
+				
+				<p:column style="width:20px">
+				<f:facet name="header"><p:outputLabel value="Price"/></f:facet>
+				<center><p:outputLabel value="#{add.price}"/></center>
+				</p:column>
+				
+				<p:column style="width:20px">
+					<f:facet name="header"><p:outputLabel value="Quantity"/></f:facet>
+					<center><p:outputLabel value="#{add.quantity}"/></center>
+				</p:column>
+				
+				<p:column style="width:10px">
+					<f:facet name="header"><p:outputLabel value="Amount"/></f:facet>
+					<center><p:outputLabel value="#{add.amount}"/></center>
+				</p:column>
+			
+				</h:dataTable>
+
+			</div>
+			
+			
+			
+			
+			
+			<div>
+				<h:panelGrid columns="2" style="width:50px;">
+					<p:commandButton value="Continue" action="managerRegistration.xhtml" icon="fa fa-save" ajax="false"/>
+				
+					<p:commandButton value="Save"  icon="fa fa-edit"/>
+				</h:panelGrid>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+
+					
+		
+</ui:composition>

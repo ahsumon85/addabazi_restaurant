@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >     
+<h:head>
+<title>Service Registration</title>
+  <link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/serviceRegistration.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+<h:form id="service" enctype="multipart/form-data" prependId="false">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+		<a class="" href="serviceRegistrationList.xhtml"><img class="image_info" src="icon/information.png" title="Go Home" alt="Flower" /></a>
+	</div>
+	
+
+	<div class="validation-grids"  style="margin-top:8px;width:798px;margin-left: 254px; height: 500px;">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+			<div class="input-info">
+				<h3>Service Registration</h3>
+			</div>
+			
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		
+			<h:panelGrid columns="2" cellpadding="8">
+				<p:outputLabel  value="Name :" style="margin-top:10px;"/> <p:inputText placeholder="Name" value="#{serviceController.servicedto.serviceName}" type="text" class="form-control inputEmail"/>
+				<p:outputLabel value="Price :" /> <p:inputText placeholder="price" value="#{serviceController.servicedto.price}" class="form-control inputEmail"	/>
+				<p:outputLabel value="Photo :"/> <p:fileUpload skinSimple="true" value="#{serviceController.uploadFile}" mode="simple" />
+			</h:panelGrid>
+
+			 <h:panelGrid  columns="2" cellpadding="5"  style="margin-top:30px">
+				<p:outputLabel  value="Category Of Service  :"/>
+		         <p:selectOneMenu id="console" value="#{serviceController.servicedto.categoryEntity.categoryID}" style="width:125px">
+		            <f:selectItem itemLabel="Select One" itemValue="" />
+		            <f:selectItems value="#{serviceController.categoryDTOs}" var="category" itemLabel="#{category.categoryName}" itemValue="#{category.categoryID}" /> 
+		        </p:selectOneMenu> 
+			   </h:panelGrid> 
+			        
+			  <h:panelGrid columns="3" cellpadding="10" style="padding:20px; margin:1% 0% 0% 15%">
+				<p:commandButton value="Save" action="#{serviceController.saveService}" update="service" icon="fa fa-save" ajax="false" style=""/>
+				
+			</h:panelGrid>      
+			   
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

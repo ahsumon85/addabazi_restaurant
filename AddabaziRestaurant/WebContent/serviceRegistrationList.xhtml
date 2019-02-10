@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+                
+<h:head>
+<title>Service Registration</title>
+<link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/serviceRagistrationList.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+
+
+<h:form id="manager" enctype="multipart/form-data">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+	</div>
+
+
+	<div class="validation-grids" style="margin-top:8px;">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+		
+			
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		
+			 <p:dataGrid value="#{serviceController.serviceList}" var="service" columns="7">
+      			<p:panel id="panel" style="width:150px; border:1px solid white; margin-top:10px" >
+      			<h:panelGrid>
+      			<p:graphicImage value="/uploaded/servicePic/#{service.photoPath}" style="width:150px; height:130px; border-radius: 8px;"/>
+      			</h:panelGrid>
+      			
+                <h:panelGrid columns="3" cellpadding="">
+                    <p:outputLabel value="#{service.serviceName}" />
+                </h:panelGrid>
+                
+                <h:panelGrid columns="2">
+                     <p:outputLabel value="Price : " /> 
+                    <p:outputLabel value="#{service.price}" />
+                </h:panelGrid>
+                
+             	<p:commandButton value="Edit" icon="fa fa-edit" action="serviceRegistration.xhtml?faces-redirect=true" style="margin-top:0px; margin-left:25px; background:none; border:2px solid black; color:white">
+			<f:setPropertyActionListener value="#{service}" target="#{serviceController.servicedto}"/>
+				</p:commandButton>
+				
+			<!-- 	<p:commandButton value="Delete" action="#{teacherBean.deleteTeacher}" update="delete" ajax="false" icon="fa fa-remove" style="margin-top:10px">
+		<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.teacherdto}"/>
+				</p:commandButton> -->
+   			 </p:panel>
+
+		</p:dataGrid>
+		
+			
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

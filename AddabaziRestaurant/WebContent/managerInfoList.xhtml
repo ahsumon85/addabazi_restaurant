@@ -1,0 +1,102 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+                
+<h:head>
+<title>Manager Information</title>
+<link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/managerInfoList.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+
+
+
+<h:form id="manager" enctype="multipart/form-data">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		 <a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+	</div>
+
+
+	<div class="validation-grids" style="margin-top:8px;width:798px;margin-left: 254px;">
+		<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 
+		
+				
+	<div class="form-body form-body-info">
+		<div class="form-group has-feedback">
+		<p:growl/>
+		<p:panel>
+		<div style="margin-left: 25%">
+			<h:panelGrid columns="2" style="font-style: italic;">
+			<p:outputLabel value="Information of "/>
+			<p:outputLabel style="margin-left:2px" value="#{managerController.managerdto.managerName}"/>
+			</h:panelGrid>
+		</div>
+		</p:panel>
+
+
+<p:panel style=" float:left;  margin-top:5px;">
+<h:panelGrid >
+	<h:panelGrid columns="2" cellpadding="10">
+	<p:outputLabel value="Name :" />
+	<p:outputLabel value="#{managerController.managerdto.managerName}"/>
+	
+	<p:outputLabel value="Father Name :"/>
+	<p:outputLabel value="#{managerController.managerdto.fatherName}"/>
+
+	<p:outputLabel value="Email :"/>
+	<p:outputLabel value="#{managerController.managerdto.email}"/>
+	
+	<p:outputLabel value="Number :"/>
+	<p:outputLabel value="#{managerController.managerdto.number}"/>
+	
+	<p:outputLabel value="Father Number :"/>
+	<p:outputLabel value="#{managerController.managerdto.fatherNumber}"/>
+
+	<p:outputLabel value="Date Of Birth :"/>
+	<p:outputLabel value="#{managerController.managerdto.birthDate}"/>
+
+	<p:outputLabel value="Eduacation :"/>
+	<p:outputLabel value="#{managerController.managerdto.education}"/>
+	
+	
+	<p:outputLabel value="National ID :"/>
+	<p:outputLabel value="#{managerController.managerdto.natinoalID}"/>
+	
+	<p:outputLabel value="Address :"/>
+	<p:outputLabel value="#{managerController.managerdto.address}"/>
+	</h:panelGrid>
+</h:panelGrid>
+</p:panel>
+
+<p:panelGrid columns="1" style="float:right; ">
+<p:graphicImage value="/uploaded/managerPic/#{managerController.managerdto.photoPath}" style="width:220px; height:230px;"/>
+</p:panelGrid>
+
+<div style="height:20px; clear:both">
+
+</div>	
+
+		<div style="">
+			<p:column>
+      		<p:commandButton value="Edit" action="managerRegistration.xhtml?faces-redirect=true" style="margin-top:10px; background:none; border:2px solid white; color:white">
+			<f:setPropertyActionListener value="#{manager}" target="#{managerController.managerDTOs}"/>
+			</p:commandButton>
+			 
+			</p:column>
+   		</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+		</h:form>
+					
+					
+		
+</ui:composition>

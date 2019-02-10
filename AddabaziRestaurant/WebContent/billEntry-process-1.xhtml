@@ -1,0 +1,113 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"  
+                >
+            
+              
+<h:head>
+<title>Bill Entry</title>
+  <link rel="shortcut icon" href="http://res.cloudinary.com/simpleview/image/upload/v1438123960/clients/grandrapids/file_bcf11a47-7451-464f-8c4d-c9d3e85e9146.png" />
+</h:head>
+<link href="css/billEntry-process-1.css" rel='stylesheet' type='text/css' />
+
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,700" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" /> 
+
+
+
+
+<h:form id="billEntry" enctype="multipart/form-data" prependId="false">
+
+
+
+	<div class="validation-grids" style="background:rgba(20, 21, 22, 0.52)">
+	<div class="widget-shadow login-form-shadow" data-example-id="basic-forms"> 		
+	<div class="form-body form-body-info">
+	<div class="form-group has-feedback" style="margin-left: 3%">
+	<div class="slider">
+		<marquee behavior="scroll" direction="left">AddaBazi Restaurant.com</marquee>
+		<a class="" href="addabaziHome.xhtml"><img class="image" src="icon/home.png" title="Go Home" alt="Flower" /></a>
+	</div>
+				
+			<p:growl />	
+				
+			<h:panelGrid  columns="4" cellpadding="10">
+				<p:outputLabel for="category" value="Category of Service  :"/>
+		        <p:selectOneMenu value="#{serviceController.categoryDTO.categoryID}" id="category"  style="width:125px; margin-left:15px;">
+		            <f:selectItem  itemLabel="select one" itemValue="" />
+		            <f:selectItems value="#{serviceController.categoryDTOs}" var="category"  itemLabel="#{category.categoryName}" itemValue="#{category.categoryID}" />
+		       		<p:ajax event="change" listener="#{serviceController.findCategoryService}" update="billEntry" />
+		        </p:selectOneMenu>
+		        
+		        
+		        <p:outputLabel for="manager" value="Manager  :"/>
+		        <p:selectOneMenu  id="manager"  style="width:125px; margin-left:15px;">
+		        	 <f:selectItem itemLabel="select one" itemValue="" />
+		            <f:selectItems value="#{managerController.managerDTOs}" var="manager" itemLabel="#{manager.managerName}" itemValue="#{manager.managerID}"/>
+		        </p:selectOneMenu>
+			 </h:panelGrid>
+			 
+			 <h:panelGrid columns="4" cellpadding="8">
+				<p:outputLabel value="Customer Name :"/> <p:inputText value="#{billController.billDTO.customerBasicInfo.customerName}" placeholder="Name" type="text" class="form-control inputEmail"/>
+				<p:outputLabel value="Number :" /><p:inputText value="#{billController.billDTO.customerBasicInfo.customerNumber}" placeholder="number" class="form-control inputEmail"/>
+			</h:panelGrid>
+			 
+			 
+			  <h:panelGrid  columns="4" >
+				<p:outputLabel for="console" value="Manu  :"/>
+		        <p:selectOneMenu   id="console" style="width:125px; margin-left:15px;">
+		            <f:selectItem itemLabel="Select One" itemValue="" />
+		            <f:selectItems value="#{serviceController.categoryWiseList}"  var="item" itemLabel="#{item.serviceName}" itemValue="#{item.serviceID}"/>
+		        </p:selectOneMenu> 
+		        
+		        
+		        <p:outputLabel value="Quantity :"/>
+					<p:inputText value="#{billController.billDTO.sellDetails.quantity}" placeholder="Quantity" type="text" class="form-control inputEmail"/>
+		        </h:panelGrid>
+		        
+		   
+		    <h:panelGrid> 
+		   	<p:commandButton value="Add" update="billEntry"  ajax="false">	</p:commandButton> 
+		     </h:panelGrid>     
+		</div>
+		
+		
+		<div style="margin-left: 5%">					
+			<p:dataTable var="addList" border="1" style="width:45%;">
+				<p:column style="width:20px;">
+					<f:facet name="header"><p:outputLabel value=" No"/></f:facet>
+					<p:outputLabel value="#{addList.addID}" />
+				</p:column>
+					
+				<p:column style="width:100px">
+					<f:facet name="header"><p:outputLabel value="Item"/></f:facet>
+					<p:outputLabel value="#{addList.serviceName}"/>
+				</p:column>
+				
+				<p:column style="width:42px">
+					<f:facet name="header"><p:outputLabel value="Quantity"/></f:facet>
+					<p:outputLabel value="#{addList.quantity}"/>
+				</p:column>
+				
+				<p:column style="width:50px">
+					<f:facet name="header"><p:outputLabel value="Price"/></f:facet>
+					<p:outputLabel value="#{addList.price}"/>
+				</p:column>
+			</p:dataTable>
+
+		</div>  
+		
+		<h:panelGrid columns="3" cellpadding="10" style="padding:20px;">
+				<p:commandButton value="save" icon="fa fa-save" action="#{billController.billBasicInfo}" ajax="false" />
+			</h:panelGrid>	
+			
+ 
+ </div>
+</div>
+</div>
+</h:form>
+									
+		
+</ui:composition>
